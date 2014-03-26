@@ -1,0 +1,27 @@
+1:Welcome Room
+XXXXXXXXXXXXXXX
+X             X
+X              
+X             X
+              X
+X             X
+X             X
+XXXXXXXX XXXXXX
+2:South Room
+XXXXXXXX XXXXXX
+X             X
+X             X
+X             X
+X             X
+X             X
+X             X
+XXXXXXXXXXXXXXX
+3:East Room
+XXXXXXXXXXXXXXX
+X             X
+      XX      X
+X      X      X
+X      XX     X
+X             X
+X             X
+XXXXXXXXXXXXXXX
