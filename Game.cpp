@@ -1,7 +1,16 @@
 #include "Game.h"
+#include "PlayerLoader.h"
+#include "WorldLoader.h"
+#include <iostream>
 
 
+using namespace std;
+
+
+//using initilizer lists for your variables
 Game::Game()
+:screen(INTRO)
+,running(true)
 {
 }
 
@@ -12,7 +21,8 @@ Game::~Game()
 
 void Game::update() {
 	if (this->screen == Game::INTRO) {
-		system("cls");
+                //The system command is evil.  It immediately makes you code impossible to run on other platforms
+		clearScreen();
 		cout << " ________         __                           " << endl;
 		cout << "|  |  |  |.-----.|  |.----.-----.--------.-----." << endl;
 		cout << "|  |  |  ||  -__||  ||  __|  _  |        |  -__|" << endl;
@@ -40,12 +50,14 @@ void Game::update() {
 			break;
 		default:
 			cout << "Choice not found" << endl;
-			system("pause");
+                        //CWH: ignore next character
+                        cin.ignore();
+                        cin.get();
 			break;
 		}
 	}
 	else if (this->screen == Game::LOGIN) {
-		system("cls");
+                clearScreen();
 		PlayerLoader p;
 		string user, pass;
 		cout << "Login Page" << endl << endl;
@@ -56,10 +68,12 @@ void Game::update() {
 		cout << endl;
 
 		cout << p.isLogin(user, pass);
-		system("pause");
+                //CWH: ignore next character
+                cin.ignore();
+                cin.get();
 	}
 	else if (this->screen == Game::REGISTER) {
-		system("cls");
+		clearScreen();
 		PlayerLoader p;
 		string user, pass, cpass;
 		cout << "Register page" << endl << endl;
@@ -84,10 +98,11 @@ void Game::update() {
 		}
 
 		cout << endl;
-		system("pause");
+		cin.ignore();
+                cin.get();
 	}
 	else if (this->screen == Game::PLAY) {
-		system("cls");
+                clearScreen();
 		int input;
 		WorldLoader wl;
 		cout << "enter world ID, or 1 to goto the welcome room" << endl;
@@ -97,10 +112,17 @@ void Game::update() {
 		cout << endl;
 		world.displayMap();
 
-		system("pause");
+		cin.ignore();
+                cin.get();
 	}
 }
 
 void Game::setScreen(int screen) {
 	this->screen = screen;
+}
+
+//CWH: there isn't a good crossplatform way to clear the screen.
+//Grabbed this implementation from: http://www.cplusplus.com/articles/4z18T05o/
+void Game::clearScreen() {
+	cout << string( 100, '\n' );
 }

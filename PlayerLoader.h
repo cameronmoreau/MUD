@@ -1,24 +1,25 @@
-#pragma once
-#include "Player.h"
-#include <string>
-#include <sstream>
-#include <fstream>
-#include <iostream>
+#ifndef PlayerLoader_h
+#define PlayerLoader_h
 
-using namespace std;
+//CWH: unnecessary include files removed.  You don't want to pull in dependencies
+//unless you are using them in the file you pull them into
+
+#include <string>
 
 class PlayerLoader
 {
 private:
-	string playersPath = "res/players/players.txt";
-	string playersDataPath = "res/players/players_data.txt";
+        //CWH: These constants should be static so they don't get allocated for each instance of you class
+	static const std::string playersPath;
+	static const std::string playersDataPath;
 	int nextId();
 public:
 	PlayerLoader();
 	~PlayerLoader();
 
-	bool isLogin(string user, string pass);
-	void createAccount(string user, string pass);
-	bool usernameIsTaken(string user);
+	bool isLogin(std::string user, std::string pass);
+	void createAccount(std::string user, std::string pass);
+	bool usernameIsTaken(std::string user);
 };
 
+#endif
