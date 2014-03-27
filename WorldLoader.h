@@ -1,11 +1,9 @@
-#pragma once
-#include "World.h"
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <fstream>
+//CWH: changed pragmas to ifndef as per standard
+#ifndef WorldLoader_h
+#define WorldLoader_h
 
-using namespace std;
+#include "World.h"
+#include <string>
 
 struct WorldLinks {
 	int n, e, s, w;
@@ -14,11 +12,13 @@ struct WorldLinks {
 class WorldLoader
 {
 private:
-	string atlasPath = "res/world/world_atlas.txt";
-	string worldsPath = "res/world/worlds.txt";
+        //CWH: change strings to static constants so they don't get allocated every time
+	static const std::string atlasPath;
+	static const std::string worldsPath;
 
 	WorldLinks setWorldLinks(int id);
 public:
 	World getWorld(int id);
 };
 
+#endif
