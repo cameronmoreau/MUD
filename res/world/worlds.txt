@@ -1,27 +1,39 @@
 1:Welcome Room
-XXXXXXXXXXXXXXX
-X             X
-X              
-X             X
-              X
-X             X
-X             X
-XXXXXXXX XXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXX
+X                       X
+X                       X
+X                       X
+X                       X
+X                        
+X                       X
+X                       X
+X                       X
+X                       X
+X                       X
+XXXXXXXXXXX  XXXXXXXXXXXX
 2:South Room
-XXXXXXXX XXXXXX
-X             X
-X             X
-X             X
-X             X
-X             X
-X             X
-XXXXXXXXXXXXXXX
+XXXXXXXXXXX  XXXXXXXXXXXX
+X                       X
+X                       X
+X                       X
+X                       X
+X                       X
+X                       X
+X                       X
+X                       X
+X                       X
+X                       X
+XXXXXXXXXXXXXXXXXXXXXXXXX
 3:East Room
-XXXXXXXXXXXXXXX
-X             X
-      XX      X
-X      X      X
-X      XX     X
-X             X
-X             X
-XXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXX
+X             XXXXXXXXXXX
+X     XX      XXXXXXXXXXX
+X      X      XXXXXXXXXXX
+X      XX     XXXXXXXXXXX
+              XXXXXXXXXXX
+X                       X
+X                       X
+X                       X
+X                       X
+X                       X
+XXXXXXXXXXXXXXXXXXXXXXXXX
