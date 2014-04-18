@@ -80,3 +80,45 @@ bool PlayerLoader::isLogin(string user, string pass) {
 
 	return false;
 }
+
+int PlayerLoader::getUserId(std::string user) {
+	string temp, temp2;
+	int tempId;
+	ifstream file;
+	file.open(playersPath.c_str());
+	while (!file.eof()) {
+		getline(file, temp);
+		stringstream ss(temp);
+		//user id
+		getline(ss, temp2, ':');
+		tempId = atoi(temp2.c_str());
+		//username
+		getline(ss, temp2, ':');
+		if (temp2 == user) {
+			return tempId;
+		}
+	}
+	file.close();
+
+	return -1;
+}
+
+std::string PlayerLoader::getUsername(int id) {
+	string temp, temp2;
+	int tempId;
+	ifstream file;
+	file.open(playersPath.c_str());
+	while (!file.eof()) {
+		getline(file, temp);
+		stringstream ss(temp);
+		//user id
+		getline(ss, temp2, ':');
+		tempId = atoi(temp2.c_str());
+		getline(ss, temp2, ':');
+		if (tempId == id)
+			return temp2;
+	}
+	file.close();
+
+	return 0;
+}

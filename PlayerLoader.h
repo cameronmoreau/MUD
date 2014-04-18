@@ -17,9 +17,14 @@ public:
 	PlayerLoader();
 	~PlayerLoader();
 
+	//Login based functions
 	bool isLogin(std::string user, std::string pass);
 	void createAccount(std::string user, std::string pass);
 	bool usernameIsTaken(std::string user);
+
+	//User based function
+	int getUserId(std::string user);
+	std::string getUsername(int id);
 };
 
 #endif

@@ -12,6 +12,7 @@ Game::Game()
 :screen(INTRO)
 ,running(true)
 {
+	Player player;
 }
 
 
@@ -67,10 +68,30 @@ void Game::update() {
 		cin >> pass;
 		cout << endl;
 
-		cout << p.isLogin(user, pass);
-                //CWH: ignore next character
-                cin.ignore();
-                cin.get();
+
+		//TODO: Add logged in state before pushing to play
+
+		//Username and passworld is correct
+		if (p.isLogin(user, pass)) {
+			player = Player(p.getUserId(user), user);
+			cout << "Welcome, " << player.getUsername() << endl;
+			cout << "Press enter to play" << endl;
+			//Temperary data
+			player.setWorldId(1);
+			player.setX(1);
+			player.setY(1);
+			cin.ignore();
+			cin.get();
+			//TODO: Load saved data
+			setScreen(Game::PLAY);
+		}
+		else {
+			cout << "Hmm, looks like an incorrect username or password" << endl;
+			cout << "Press enter to go back to the main menu" << endl;
+			cin.ignore();
+			cin.get();
+			setScreen(Game::INTRO);
+		}
 	}
 	else if (this->screen == Game::REGISTER) {
 		clearScreen();
@@ -102,18 +123,14 @@ void Game::update() {
                 cin.get();
 	}
 	else if (this->screen == Game::PLAY) {
-                clearScreen();
-		int input;
+        clearScreen();
 		WorldLoader wl;
-		cout << "enter world ID, or 1 to goto the welcome room" << endl;
-		cin >> input;
-		World world = wl.getWorld(input);
-		cout << world.getName();
+		World world = wl.getWorld(player.getCurrentWorldId());
+		cout << world.getName() << " as " << player.getUsername();
 		cout << endl;
 		world.displayMap();
-
 		cin.ignore();
-                cin.get();
+        cin.get();
 	}
 }
 

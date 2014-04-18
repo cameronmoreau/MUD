@@ -3,6 +3,7 @@
 //using non standard features
 #ifndef Game_h
 #define Game_h
+#include "Player.h"
 
 //CWH: Nothing in this file references anything in these include files.
 //It is good practice to only pull in header files that you are actually using
@@ -16,8 +17,11 @@ class Game
 private:
 	int screen;
 	bool running;
-        //CWH: adding a clear screen function to avoid system call
-        void clearScreen();
+    //CWH: adding a clear screen function to avoid system call
+    void clearScreen();
+
+	//Temp variables until network is added, will be clientside vars
+	Player player;
 public:
 	Game();
 	~Game();
