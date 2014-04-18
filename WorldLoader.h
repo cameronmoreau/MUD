@@ -5,6 +5,8 @@
 #include "World.h"
 #include <string>
 
+using namespace std;
+
 struct WorldLinks {
 	int n, e, s, w;
 };

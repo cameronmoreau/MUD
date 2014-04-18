@@ -10,6 +10,7 @@ using namespace std;
 
 //CWH: when making something static it is better to initialize it in the cpp file
 const std::string PlayerLoader::playersPath = "res/players/players.txt";
+const std::string PlayerLoader::playersWorldDataPath = "res/players/players_world_data.txt";
 const std::string PlayerLoader::playersDataPath = "res/players/players_data.txt";
 
 PlayerLoader::PlayerLoader()
@@ -52,11 +53,50 @@ int PlayerLoader::nextId() {
 	return atoi(lastId.c_str()) + 1;
 }
 
+PlayerData PlayerLoader::loadPlayerData(int id) {
+	PlayerData data;
+
+	string temp, temp2;
+	ifstream file;
+	file.open(playersWorldDataPath.c_str());
+	while (!file.eof()) {
+		getline(file, temp);
+		stringstream ss(temp);
+		//Get id
+		getline(ss, temp2, ':');
+		if (id == atoi(temp2.c_str())) {
+			//Get last world
+			getline(ss, temp2, ':');
+			data.worldId = atoi(temp2.c_str());
+
+			//Get last X
+			getline(ss, temp2, ':');
+			data.x = atoi(temp2.c_str());
+
+			//Get last Y
+			getline(ss, temp2, ':');
+			data.y = atoi(temp2.c_str());
+		}
+	}
+	file.close();
+
+	return data;
+}
+
 void PlayerLoader::createAccount(string user, string pass) {
 	int id = nextId();
+
+	//Create player
 	string player = to_string(id) + ":" + user + ":" + pass;
 	ofstream file;
 	file.open(playersPath.c_str(), ios::app);
+	file << endl << player;
+	file.close();
+
+	//Generate player world data
+	//Spawn in welcome spot
+	player = to_string(id) + ":1:5:5";
+	file.open(playersWorldDataPath.c_str(), ios::app);
 	file << endl << player;
 	file.close();
 }

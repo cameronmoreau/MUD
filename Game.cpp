@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "PlayerLoader.h"
 #include "WorldLoader.h"
+#include "PlayerData.h"
 #include <iostream>
 
 
@@ -12,12 +13,12 @@ Game::Game()
 :screen(INTRO)
 ,running(true)
 {
-	Player player;
 }
 
 
 Game::~Game()
 {
+	delete player;
 }
 
 void Game::update() {
@@ -73,13 +74,11 @@ void Game::update() {
 
 		//Username and passworld is correct
 		if (p.isLogin(user, pass)) {
-			player = Player(p.getUserId(user), user);
-			cout << "Welcome, " << player.getUsername() << endl;
+			player = new Player(p.getUserId(user), user);
+			cout << "Welcome, " << player->getUsername() << endl;
 			cout << "Press enter to play" << endl;
 			//Temperary data
-			player.setWorldId(1);
-			player.setX(1);
-			player.setY(1);
+			player->setPlayerWorldData(p.loadPlayerData(player->getUserId()));
 			cin.ignore();
 			cin.get();
 			//TODO: Load saved data
@@ -123,10 +122,14 @@ void Game::update() {
                 cin.get();
 	}
 	else if (this->screen == Game::PLAY) {
+		//I was thinking later that in the future play class, I should just get the world and player then
+		//link them together rather than just linking Player to World? I'm not really sure for when
+		//adding in networking
         clearScreen();
 		WorldLoader wl;
-		World world = wl.getWorld(player.getCurrentWorldId());
-		cout << world.getName() << " as " << player.getUsername();
+		World world = wl.getWorld(player->getCurrentWorldId());
+		world.linkPlayer(*player);
+		cout << world.getName() << " as " << player->getUsername();
 		cout << endl;
 		world.displayMap();
 		cin.ignore();

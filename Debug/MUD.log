@@ -1,13 +1,8 @@
-﻿Build started 4/17/2014 8:20:47 PM.
+﻿Build started 4/17/2014 11:40:16 PM.
      1>Project "C:\Users\Cameron\Documents\Visual Studio 2013\Projects\C++\Mentorship\MUD\MUD\MUD.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp Main.cpp Player.cpp PlayerLoader.cpp
-         Game.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt PlayerLoader.cpp
          PlayerLoader.cpp
-         Player.cpp
-         Main.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Cameron\Documents\Visual Studio 2013\Projects\C++\Mentorship\MUD\Debug\MUD.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Cameron\Documents\Visual Studio 2013\Projects\C++\Mentorship\MUD\Debug\MUD.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Cameron\Documents\Visual Studio 2013\Projects\C++\Mentorship\MUD\Debug\MUD.lib" /MACHINE:X86 Debug\Game.obj
          Debug\Main.obj
@@ -15,9 +10,10 @@
          Debug\PlayerLoader.obj
          Debug\World.obj
          Debug\WorldLoader.obj
+         Debug\WorldObject.obj
          MUD.vcxproj -> C:\Users\Cameron\Documents\Visual Studio 2013\Projects\C++\Mentorship\MUD\Debug\MUD.exe
      1>Done Building Project "C:\Users\Cameron\Documents\Visual Studio 2013\Projects\C++\Mentorship\MUD\MUD\MUD.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.70
+Time Elapsed 00:00:00.81

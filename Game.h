@@ -21,7 +21,9 @@ private:
     void clearScreen();
 
 	//Temp variables until network is added, will be clientside vars
-	Player player;
+	//Not really sure about making player a pointer, or if im really doing it right
+	//I tried to do this to save memory since im referencing it to World.h
+	Player *player;
 public:
 	Game();
 	~Game();

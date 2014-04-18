@@ -1,0 +1,5 @@
+players = id:username:password
+players_world_data = userId:worldId:worldX:worldY
+
+worlds = id:name:world[12x25]
+world_atlas = worldId:north:east:south:west

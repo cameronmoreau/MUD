@@ -2,7 +2,7 @@
 
 World::World() {}
 
-World::World(int id, string name, int northId, int eastId, int southId, int westId, char map[12][25]) {
+World::World(int id, std::string name, int northId, int eastId, int southId, int westId, char map[12][25]) {
 	this->id = id;
 	this->name = name;
 	this->northId = northId;
@@ -28,13 +28,17 @@ void World::displayMap() {
 	{
 		for (int x = 0; x < 25; x++)
 		{
-			cout << map[y][x];
+			char tile = map[y][x];
+			//Printing different entities or WorldObjects
+			if (y == player->getY() && x == player->getX())
+				tile = '@';
+			std::cout << tile;
 		}
-		cout << endl;
+		std::cout << std::endl;
 	}
 }
 
-string World::getName() { return name; }
+std::string World::getName() { return name; }
 int World::getId() { return id; }
 
 int World::getNorthId() { return northId; }
