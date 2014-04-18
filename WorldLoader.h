@@ -12,7 +12,7 @@ struct WorldLinks {
 class WorldLoader
 {
 private:
-        //CWH: change strings to static constants so they don't get allocated every time
+    //CWH: change strings to static constants so they don't get allocated every time
 	static const std::string atlasPath;
 	static const std::string worldsPath;
 

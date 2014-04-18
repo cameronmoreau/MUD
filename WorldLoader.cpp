@@ -15,7 +15,7 @@ World WorldLoader::getWorld(int id) {
 	World world;
 	ifstream file;
 	int counter = 0;
-	char map[8][15];
+	char map[12][25];
 	file.open(worldsPath.c_str());
 	while (!file.eof())
 	{
@@ -27,10 +27,10 @@ World WorldLoader::getWorld(int id) {
 			getline(ss, name, ':');
 			if (name == to_string(id)) {
 				getline(ss, name, ':');
-				for (int y = 0; y < 8; y++)
+				for (int y = 0; y < 12; y++)
 				{
 					getline(file, temp2);
-					for (int x = 0; x < 15; x++)
+					for (int x = 0; x < 25; x++)
 					{
 						map[y][x] = temp2[x];
 					}
@@ -40,7 +40,7 @@ World WorldLoader::getWorld(int id) {
 				file.seekg(0, ios_base::end);
 			}
 		}
-		else if (counter == 9)
+		else if (counter == 13)
 		{
 			counter = 0;
 		}
