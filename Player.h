@@ -24,6 +24,13 @@ public:
 	std::string getUsername() { return username; };
 	int getUserId() { return userId; }
 	int getCurrentWorldId() { return worldId; }
+
+	enum Direction {
+		UP, 
+		DOWN, 
+		LEFT, 
+		RIGHT
+	};
 };
 
 #endif
