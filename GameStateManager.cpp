@@ -1,6 +1,9 @@
 #include "GameStateManager.h"
 #include "GameState.h"
 
+#include <iostream>
+#include <string>
+
 void GameStateManager::init() {
 	running = true;
 }
@@ -54,4 +57,10 @@ void GameStateManager::getInput() {
 
 void GameStateManager::draw() {
 	states.back()->draw(this);
+}
+
+//Just decided to put it here since I reference it all the time
+//Should it go into GameState instead?
+void GameStateManager::clearScreen() {
+	std::cout << std::string(100, '\n');
 }

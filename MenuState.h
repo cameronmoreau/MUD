@@ -2,10 +2,22 @@
 #define MenuState_h
 
 #include "GameState.h"
+#include "Player.h"
+
 class MenuState : public GameState
 {
 private:
 	static MenuState gMenuState;
+
+	enum Screen {
+		MENU,
+		LOGIN,
+		REGISTER
+	};
+
+	int screen;
+	Player *player;
+
 protected:
 	MenuState() { }
 public:

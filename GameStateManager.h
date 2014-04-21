@@ -24,6 +24,8 @@ public:
 
 	bool isRunning() { return running; }
 	void quit() { this->running = false; }
+
+	void clearScreen();
 };
 
 #endif
